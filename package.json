@@ -22,7 +22,7 @@
     "version": "npm run build",
     "publish-next": "npm publish --tag next"
   },
-  "module": "dist/uds.es.js",
+  "module": "dist/uds.es.mjs",
   "main": "dist/uds.js",
   "jsnext:main": "dist/uds.es.js",
   "style": "dist/uds.css",
