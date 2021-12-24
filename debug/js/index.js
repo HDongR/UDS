@@ -1,4 +1,4 @@
-import {init} from '/js/worker/shared-orbitcontrols.js';
+import {init} from '/debug/js/worker/shared-orbitcontrols.js';
 
 var gisObj = {
   worker: null
