@@ -65,5 +65,3 @@ export const COLOR_PROPERTIES = [
 ];
 
 export const DEFAULT_TEXT_SIZE = 14;
-
-console.log('log1', DEFAULT_TEXT_SIZE);

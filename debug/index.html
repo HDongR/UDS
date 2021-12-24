@@ -1,13 +1,8 @@
 <html>
 <head>
   <meta charset="UTF-8"/>
-  <link rel="stylesheet" href="../dist/uds.css"/>
-  <script type="text/javascript" src="../dist/uds.js"></script>
-  <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/maptalks/dist/maptalks.js"></script> -->
-  <!-- <script type="text/javascript" src="https://maptalks.org/examples/cn/tilelayer-projection/tile-mask/raw/boundary.js"></script> -->
-  <title>Debug</title> 
-  <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js"></script> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UDS</title>
   <style>
     html,
     body {
@@ -22,12 +17,20 @@
         border: 1px solid;
     }
 </style>
+
+<script src="/debug/util/jquery-2.2.4.js"></script>
+<script src="/debug/util/jquery-ui.min.js"></script>
+<script type="module" src="/debug/js/index.js"></script>
 </head>
-  <body>
-  <div>
-    <div id="map" class="map"></div>
+<body>
+  <div id="map" class="map">
+    <canvas id="c" style="width: -webkit-fill-available;height: -webkit-fill-available;"></canvas>
+    <div id="coordinate"><span style="margin-left: 100px;" id="resultHeight"></span>
+      <button style="margin-left: 10px;" id="loadWAV">start</button>
+    </div>
   </div>
-    <script>
+  <script>
+    /*
     var center = new maptalks.Coordinate([121.49867630004883, 31.25405711739208])
     var map = new maptalks.Map('map', {
       "center": [129.152236, 35.153602], "zoom": 16, "pitch": 0, "bearing": 0,
@@ -49,7 +52,7 @@
     });
 
     tileLayer.addTo(map);
-
+*/
           </script>
         </body>
       </html>
