@@ -77,6 +77,17 @@ gulp.task('minify', done => {
     fs.writeFileSync('dist/' + name + '.min.js', minified);
     const gzipped = zlib.gzipSync(minified);
     fs.writeFileSync('dist/' + name + '.min.js.gz', gzipped);
+
+    //worker
+    // const wcode = fs.writeFileSync('src/DataWorker.js').toString('utf-8');
+    // const wu = uglify(wcode, {
+    //     'output': {
+    //         'ascii_only': true,
+    //         'comments' : /^!/
+    //     }
+    // });
+    // const wminified = wu.code;
+    // fs.writeFileSync('dist/worker.min.js', wminified);
     done();
 });
 

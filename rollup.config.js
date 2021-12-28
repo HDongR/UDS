@@ -1,7 +1,9 @@
 const commonjs = require('rollup-plugin-commonjs'),
     resolve = require('rollup-plugin-node-resolve'),
     babel = require('rollup-plugin-babel'),
-    json = require('rollup-plugin-json');
+    json = require('rollup-plugin-json'),
+    webWorkerLoader = require('rollup-plugin-web-worker-loader');
+    
 const pkg = require('./package.json');
 
 const testing = process.env.BUILD === 'test';
@@ -27,6 +29,7 @@ module.exports = {
             main : true
         }),
         commonjs(),
+        webWorkerLoader(),
         babel({
             plugins
         })

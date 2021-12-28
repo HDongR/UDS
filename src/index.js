@@ -20,3 +20,23 @@ export { default as CollisionIndex } from './core/CollisionIndex';
 export { default as Handlerable } from './handler/Handlerable';
 export { default as Handler } from './handler/Handler';
 export { default as DragHandler } from './handler/Drag';
+
+import DataWorker from 'web-worker:./DataWorker.min.js';
+const dataWorker = new DataWorker();
+dataWorker.onmessage = (e)=>{
+    console.log('onMessage:', e.data); 
+};
+
+var idx =0;
+loop();
+function loop(){
+    setTimeout(()=>{
+        dataWorker.postMessage('Hello World!');
+        
+        
+        console.log(idx);
+        loop();
+    }, 1000);
+
+    idx++;
+}
