@@ -20,9 +20,7 @@ export { default as CollisionIndex } from './core/CollisionIndex';
 export { default as Handlerable } from './handler/Handlerable';
 export { default as Handler } from './handler/Handler';
 export { default as DragHandler } from './handler/Drag';
-
-import DataWorker from 'web-worker:./DataWorker.min.js';
-const dataWorker = new DataWorker();
+const dataWorker = new Worker(new URL('./DataWorker.js', import.meta.url));
 dataWorker.onmessage = (e)=>{
     console.log('onMessage:', e.data); 
 };

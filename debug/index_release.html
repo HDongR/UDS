@@ -1,0 +1,62 @@
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UDS</title>
+  <style>
+    html,
+    body {
+        margin: 0px;
+        height: 100%;
+        width: 100%;
+    }
+
+    .map {
+        width: 100%;
+        height: 100%;
+        border: 1px solid;
+    }
+</style>
+
+<script src="/debug/util/jquery-2.2.4.js"></script>
+<script src="/debug/util/jquery-ui.min.js"></script>
+<!-- <script type="module" src="/debug/js/index.js"></script> -->
+<!-- <script type="module" src="/dist/uds.js"></script> -->
+<!-- <script type="module" src="/dist/uds.min.js"></script> -->
+<script type="module" src="/webpack-build.min.js"></script>
+
+</head>
+<body>
+  <div id="map" class="map">
+    <canvas id="c" style="width: -webkit-fill-available;height: -webkit-fill-available;"></canvas>
+    <div id="coordinate"><span style="margin-left: 100px;" id="resultHeight"></span>
+      <button style="margin-left: 10px;" id="loadWAV">start</button>
+    </div>
+  </div>
+  <script>
+    /*
+    var center = new maptalks.Coordinate([121.49867630004883, 31.25405711739208])
+    var map = new maptalks.Map('map', {
+      "center": [129.152236, 35.153602], "zoom": 16, "pitch": 0, "bearing": 0,
+
+      baseLayer: new maptalks.TileLayer('base', {
+        'urlTemplate': 'http://t{s}.tianditu.com/DataServer?T=vec_w&x={x}&y={y}&l={z}&tk=93df4a6f463722663374c255e2c9804f',
+        'subdomains': ['1', '2', '3', '4', '5'],
+        attribution: '&copy; Google Maps'
+      })
+    });
+
+    var tileLayer = new maptalks.TileLayer('base', {
+      pyramidMode: 1,
+      debug: true,
+      opacity: 0.5,
+      'urlTemplate': 'http://webrd{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}',
+      'subdomains': ['01', '02', '03', '04'],
+      attribution: '&copy; Google Maps'
+    });
+
+    tileLayer.addTo(map);
+*/
+          </script>
+        </body>
+      </html>
