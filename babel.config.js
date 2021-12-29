@@ -6,6 +6,7 @@ module.exports = {
     }]
   ],
   "plugins": [
+    //"@babel/plugin-transform-runtime"
   ],
   "ignore": [
     "dist/*.js"

@@ -42,9 +42,6 @@ class Coordinate extends Position {
         if (isNumber(coordinates[0]) && isNumber(coordinates[1])) {
             return new Coordinate(coordinates);
         }
-        if (coordinates instanceof Coordinate) {
-            return coordinates;
-        }
         const result = [];
         for (let i = 0, len = coordinates.length; i < len; i++) {
             const child = coordinates[i];
@@ -54,8 +51,6 @@ class Coordinate extends Position {
                 } else {
                     result.push(Coordinate.toCoordinates(child));
                 }
-            } else if (child instanceof Coordinate) {
-                result.push(child);
             } else {
                 result.push(new Coordinate(child));
             }
