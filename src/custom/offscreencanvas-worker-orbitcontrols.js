@@ -76,6 +76,7 @@ function start(data) {
     canvas: data.canvas,
     inputElement: proxy,
     mapConfig: data.mapConfig,
+    browser: data.browser,
   });
 }
 

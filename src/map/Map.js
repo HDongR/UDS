@@ -11,7 +11,7 @@ import {
     b64toBlob
 } from '../core/util';
 import Class from '../core/Class';
-import Browser from '../core/Browser';
+//import Browser from '../core/Browser';
 import Eventable from '../core/Eventable';
 import Handlerable from '../handler/Handlerable';
 import Point from '../geo/Point';
@@ -102,7 +102,7 @@ const options = {
     'enableInfoWindow': true,
 
     'hitDetect': (function () {
-        return !Browser.mobile;
+        return true;//!Browser.mobile;
     })(),
 
     'hitDetectLimit': 5,

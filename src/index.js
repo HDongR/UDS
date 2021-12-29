@@ -1,6 +1,6 @@
 import { version } from '../package.json';
 export * from './core/Constants';
-export { default as Browser } from './core/Browser';
+//export { default as Browser } from './core/Browser';
 import * as Util from './core/util';
 import * as DomUtil from './core/util/dom';
 import * as StringUtil from './core/util/strings';

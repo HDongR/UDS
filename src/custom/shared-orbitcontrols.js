@@ -1,5 +1,6 @@
 import * as THREE from '../three/build/three.module';
 import {cvt3, calcMatrix} from './util/geoutil';
+//import {Map} from '../map/Map';
 
 let globalScene;
 let globalCamera;
@@ -23,7 +24,7 @@ export function init(data) {   /* eslint-disable-line no-unused-vars */
 
   const {canvas, inputElement, mapConfig} = data;
   //config(mapConfig);
-  //let maptalks = new Maptalks(canvas, inputElement, mapConfig);
+  //let maptalks = new Map(canvas, inputElement, mapConfig);
   
   console.log(data);
   const renderer = new THREE.WebGLRenderer({ canvas });

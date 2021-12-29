@@ -1,4 +1,5 @@
 import {init} from './shared-orbitcontrols';
+import Browser from '../core/Browser';
 
 var gisObj = {
   worker: null
@@ -156,6 +157,9 @@ function startWorker(canvas) {
       minZoom:9,
       tms: '',
       center: [129.152236, 35.153602]
+    },
+    browser: {
+      Browser
     }
   }, [offscreen]);
   console.log('using OffscreenCanvas');  /* eslint-disable-line no-console */
