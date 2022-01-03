@@ -1,4 +1,5 @@
 import { INTERNAL_LAYER_PREFIX } from '../core/Constants';
+import Browser from '../core/Browser';
 import {
     now,
     extend,
@@ -11,7 +12,6 @@ import {
     b64toBlob
 } from '../core/util';
 import Class from '../core/Class';
-//import Browser from '../core/Browser';
 import Eventable from '../core/Eventable';
 import Handlerable from '../handler/Handlerable';
 import Point from '../geo/Point';
@@ -170,6 +170,7 @@ class Map extends Handlerable(Eventable(Renderable(Class))) {
         if (!options['center']) {
             throw new Error('Invalid center when creating map.');
         }
+        
         // prepare options
         const opts = extend({}, options);
         const zoom = opts['zoom'];
@@ -183,6 +184,8 @@ class Map extends Handlerable(Eventable(Renderable(Class))) {
         delete opts['layers'];
         super(opts);
 
+        
+        
         /**
          * @property {String}  - Version of library
          * @constant
@@ -198,6 +201,7 @@ class Map extends Handlerable(Eventable(Renderable(Class))) {
         this._loaded = false;
         this._initContainer(container);
 
+        this._containerDOM.getBoundingClientRect = options.getBoundingClientRect;
         this._panels = {};
 
         //Layers

@@ -13,6 +13,13 @@ import { splitWords } from './strings';
 import Point from '../../geo/Point';
 import Size from '../../geo/Size';
 
+export let _style = {};
+if(navigator.toString() == '[object WorkerNavigator]'){
+    console.log('dom.js testProp() in worker');
+}else{
+    _style = document.documentElement.style;
+}
+
 const first = (props) => {
     return props[0];
 };
@@ -28,11 +35,13 @@ const first = (props) => {
  * @private
  */
 const testProp = IS_NODE ? first : (props) => {
-
-    const style = document.documentElement.style;
-
+    if(navigator.toString() == '[object WorkerNavigator]'){
+    }else{
+        _style = document.documentElement.style;
+    }
+    
     for (let i = 0; i < props.length; i++) {
-        if (props[i] in style) {
+        if (props[i] in _style) {
             return props[i];
         }
     }
@@ -315,7 +324,8 @@ export function offsetDom(dom, offset) {
  * @memberOf DomUtil
  */
 export function computeDomPosition(dom) {
-    const style = window.getComputedStyle(dom);
+    //const style = window.getComputedStyle(dom);
+    const style = {'padding-left':0, 'padding-top':0};
     const padding = [
         parseInt(style['padding-left']),
         parseInt(style['padding-top'])
@@ -524,3 +534,5 @@ export const on = addDomEvent;
  * @memberOf DomUtil
  */
 export const off = removeDomEvent;
+
+export default _style;

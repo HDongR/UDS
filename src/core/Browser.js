@@ -1,9 +1,12 @@
 import { isFunction } from './util/common';
 import { IS_NODE } from './util/env';
 
-let Browser = {};
-
-if (!IS_NODE) {
+export let Browser = {};
+if(navigator.toString() == '[object WorkerNavigator]'){
+    console.log(' browser.js in worker');
+    
+}else if (!IS_NODE) {
+    console.log('in document');
     const ua = navigator.userAgent.toLowerCase(),
         doc = document.documentElement,
 

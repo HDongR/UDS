@@ -1,3 +1,4 @@
+import Browser from '../core/Browser';
 import Class from '../core/Class';
 import { isNil, isNumber } from '../core/util';
 import Eventable from '../core/Eventable';
@@ -6,7 +7,7 @@ import Renderable from '../renderer/Renderable';
 import CanvasRenderer from '../renderer/layer/CanvasRenderer';
 import CollisionIndex from '../core/CollisionIndex';
 import Geometry from '../geometry/Geometry';
-import Browser from '../core/Browser';
+
 
 /**
  * @property {Object}  [options=null] - base options of layer.

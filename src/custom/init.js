@@ -1,5 +1,6 @@
 import {init} from './shared-orbitcontrols';
 import Browser from '../core/Browser';
+import _style from '../core/util/dom';
 
 var gisObj = {
   worker: null
@@ -129,7 +130,7 @@ class ElementProxy {
 function startWorker(canvas) {
   canvas.focus();
   const offscreen = canvas.transferControlToOffscreen();
-  const worker = new Worker(new URL('/src/custom/offscreencanvas-worker-orbitcontrols.js',import.meta.url), {type: 'module'});
+  const worker = new Worker(new URL('/src/custom/wproxy.js',import.meta.url), {type: 'module'});
   gisObj.worker = worker;
   const eventHandlers = {
     contextmenu: preventDefaultHandler,
@@ -146,6 +147,8 @@ function startWorker(canvas) {
     keydown: filteredKeydownEventHandler,
   };
   const proxy = new ElementProxy(canvas, worker, eventHandlers);
+  let __style = {};
+  Object.assign(__style, _style);
   worker.postMessage({
     type: 'start',
     canvas: offscreen,
@@ -160,6 +163,9 @@ function startWorker(canvas) {
     },
     browser: {
       Browser
+    },
+    style: {
+      __style
     }
   }, [offscreen]);
   console.log('using OffscreenCanvas');  /* eslint-disable-line no-console */
