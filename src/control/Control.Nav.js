@@ -21,9 +21,9 @@ Map.mergeOptions({
     'navControl': false
 });
 
-Map.addOnLoadHook(function () {
-    if (this.options['navControl']) {
-        this.navControl = new Nav(this.options['navControl']);
-        this.addControl(this.navControl);
-    }
-});
+// Map.addOnLoadHook(function () {
+//     if (this.options['navControl']) {
+//         this.navControl = new Nav(this.options['navControl']);
+//         this.addControl(this.navControl);
+//     }
+// });

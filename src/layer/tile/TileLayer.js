@@ -152,7 +152,7 @@ const ARR3 = [];
         subdomains:['a','b','c']
     })
  */
-class TileLayer extends Layer {
+export class TileLayer extends Layer {
 
     /**
      * Reproduce a TileLayer from layer's profile JSON.

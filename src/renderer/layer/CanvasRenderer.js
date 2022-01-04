@@ -468,7 +468,8 @@ class CanvasRenderer extends Class {
      * 2. Clip the canvas by mask if there is any and return the mask's extent
      * @return {PointExtent} mask's extent of current zoom's 2d point.
      */
-    prepareCanvas() {
+    prepareCanvas(canvas) {
+        this.canvas = canvas;
         if (!this.canvas) {
             this.createCanvas();
             this.createContext();

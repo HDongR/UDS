@@ -220,7 +220,7 @@ const Canvas = {
 
     clearRect(ctx, x1, y1, x2, y2) {
         ctx.canvas._drawn = false;
-        ctx.clearRect(x1, y1, x2, y2);
+        //ctx.clearRect(x1, y1, x2, y2);
     },
 
     fillCanvas(ctx, fillOpacity, x, y) {

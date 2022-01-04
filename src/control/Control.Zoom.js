@@ -216,11 +216,11 @@ Map.mergeOptions({
     'zoomControl': false
 });
 
-Map.addOnLoadHook(function () {
-    if (this.options['zoomControl']) {
-        this.zoomControl = new Zoom(this.options['zoomControl']);
-        this.addControl(this.zoomControl);
-    }
-});
+// Map.addOnLoadHook(function () {
+//     if (this.options['zoomControl']) {
+//         this.zoomControl = new Zoom(this.options['zoomControl']);
+//         this.addControl(this.zoomControl);
+//     }
+// });
 
 export default Zoom;

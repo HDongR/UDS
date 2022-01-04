@@ -289,11 +289,11 @@ Map.mergeOptions({
     'overviewControl': false
 });
 
-Map.addOnLoadHook(function () {
-    if (this.options['overviewControl']) {
-        this.overviewControl = new Overview(this.options['overviewControl']);
-        this.addControl(this.overviewControl);
-    }
-});
+// Map.addOnLoadHook(function () {
+//     if (this.options['overviewControl']) {
+//         this.overviewControl = new Overview(this.options['overviewControl']);
+//         this.addControl(this.overviewControl);
+//     }
+// });
 
 export default Overview;

@@ -391,15 +391,15 @@ class MapCanvasRenderer extends MapRenderer {
     }
 
     updateMapSize(size) {
-        if (!size || this._containerIsCanvas) {
-            return;
-        }
-        const width = size['width'] + 'px',
-            height = size['height'] + 'px';
-        const panels = this.map._panels;
-        panels.mapWrapper.style.width = width;
-        panels.mapWrapper.style.height = height;
-        this._updateCanvasSize();
+        // if (!size || this._containerIsCanvas) {
+        //     return;
+        // }
+        // const width = size['width'] + 'px',
+        //     height = size['height'] + 'px';
+        // const panels = this.map._panels;
+        // panels.mapWrapper.style.width = width;
+        // panels.mapWrapper.style.height = height;
+        // this._updateCanvasSize();
     }
 
     getMainPanel() {
@@ -512,41 +512,41 @@ class MapCanvasRenderer extends MapRenderer {
 
         const POSITION0 = 'position:absolute;top:0px;left:0px;';
 
-        const mapWrapper = createContainer('mapWrapper', 'maptalks-wrapper', 'position:absolute;overflow:hidden;', true),
-            mapAllLayers = createContainer('allLayers', 'maptalks-all-layers', POSITION0 + 'padding:0px;margin:0px;z-index:0;overflow:visible;', true),
-            backStatic = createContainer('backStatic', 'maptalks-back-static', POSITION0 + 'z-index:0;', true),
-            back = createContainer('back', 'maptalks-back', POSITION0 + 'z-index:1;'),
-            backLayer = createContainer('backLayer', 'maptalks-back-layer', POSITION0),
-            canvasContainer = createContainer('canvasContainer', 'maptalks-canvas-layer', POSITION0 + 'border:none;z-index:2;'),
-            frontStatic = createContainer('frontStatic', 'maptalks-front-static', POSITION0 + 'z-index:3;', true),
-            front = createContainer('front', 'maptalks-front', POSITION0 + 'z-index:4;', true),
-            frontLayer = createContainer('frontLayer', 'maptalks-front-layer', POSITION0 + 'z-index:0;'),
-            // children's zIndex in frontLayer will be set by map.addLayer, ui container's z-index is set to 10000 to make sure it's always on the top.
-            ui = createContainer('ui', 'maptalks-ui', POSITION0 + 'border:none;z-index:1;', true),
-            control = createContainer('control', 'maptalks-control', 'z-index:1', true);
+        // const mapWrapper = createContainer('mapWrapper', 'maptalks-wrapper', 'position:absolute;overflow:hidden;', true),
+        //     mapAllLayers = createContainer('allLayers', 'maptalks-all-layers', POSITION0 + 'padding:0px;margin:0px;z-index:0;overflow:visible;', true),
+        //     backStatic = createContainer('backStatic', 'maptalks-back-static', POSITION0 + 'z-index:0;', true),
+        //     back = createContainer('back', 'maptalks-back', POSITION0 + 'z-index:1;'),
+        //     backLayer = createContainer('backLayer', 'maptalks-back-layer', POSITION0),
+        //     canvasContainer = createContainer('canvasContainer', 'maptalks-canvas-layer', POSITION0 + 'border:none;z-index:2;'),
+        //     frontStatic = createContainer('frontStatic', 'maptalks-front-static', POSITION0 + 'z-index:3;', true),
+        //     front = createContainer('front', 'maptalks-front', POSITION0 + 'z-index:4;', true),
+        //     frontLayer = createContainer('frontLayer', 'maptalks-front-layer', POSITION0 + 'z-index:0;'),
+        //     // children's zIndex in frontLayer will be set by map.addLayer, ui container's z-index is set to 10000 to make sure it's always on the top.
+        //     ui = createContainer('ui', 'maptalks-ui', POSITION0 + 'border:none;z-index:1;', true),
+        //     control = createContainer('control', 'maptalks-control', 'z-index:1', true);
 
-        containerDOM.appendChild(mapWrapper);
+        // containerDOM.appendChild(mapWrapper);
 
-        mapAllLayers.appendChild(backStatic);
-        back.appendChild(backLayer);
-        back.layerDOM = backLayer;
-        mapAllLayers.appendChild(back);
-        mapAllLayers.appendChild(canvasContainer);
-        front.appendChild(frontLayer);
-        front.layerDOM = frontLayer;
-        front.uiDOM = ui;
-        mapAllLayers.appendChild(frontStatic);
-        mapAllLayers.appendChild(front);
-        front.appendChild(ui);
+        // mapAllLayers.appendChild(backStatic);
+        // back.appendChild(backLayer);
+        // back.layerDOM = backLayer;
+        // mapAllLayers.appendChild(back);
+        // mapAllLayers.appendChild(canvasContainer);
+        // front.appendChild(frontLayer);
+        // front.layerDOM = frontLayer;
+        // front.uiDOM = ui;
+        // mapAllLayers.appendChild(frontStatic);
+        // mapAllLayers.appendChild(front);
+        // front.appendChild(ui);
 
-        mapWrapper.appendChild(mapAllLayers);
-        mapWrapper.appendChild(control);
+        // mapWrapper.appendChild(mapAllLayers);
+        // mapWrapper.appendChild(control);
 
-        this.createCanvas();
+        // this.createCanvas();
 
-        this.resetContainer();
-        const mapSize = this.map._getContainerDomSize();
-        this.updateMapSize(mapSize);
+        // this.resetContainer();
+        // const mapSize = this.map._getContainerDomSize();
+        // this.updateMapSize(mapSize);
     }
 
     /**
@@ -672,7 +672,7 @@ class MapCanvasRenderer extends MapRenderer {
                 point.x + 18, point.y + 18);
         }*/
 
-        ctx.drawImage(canvasImage, 0, 0, width, height, point.x, point.y, targetWidth, targetHeight);
+        //ctx.drawImage(canvasImage, 0, 0, width, height, point.x, point.y, targetWidth, targetHeight);
         if (matrix) {
             ctx.restore();
         }
@@ -785,8 +785,8 @@ class MapCanvasRenderer extends MapRenderer {
     }
 
     createCanvas() {
-        this.topLayer = createEl('canvas');
-        this.topCtx = this.topLayer.getContext('2d');
+        //this.topLayer = createEl('canvas');
+        //this.topCtx = this.topLayer.getContext('2d');
         if (this._containerIsCanvas) {
             this.canvas = this.map._containerDOM;
         } else {
@@ -794,7 +794,8 @@ class MapCanvasRenderer extends MapRenderer {
             this._updateCanvasSize();
             this.map._panels.canvasContainer.appendChild(this.canvas);
         }
-        this.context = this.canvas.getContext('2d');
+        this.context = this.map.context;
+        this.topCtx = this.context;
     }
 
     _updateDomPosition(framestamp) {
@@ -936,7 +937,7 @@ class MapCanvasRenderer extends MapRenderer {
 
     drawTops() {
         // clear topLayer
-        this.topCtx.clearRect(0, 0, this.topLayer.width, this.topLayer.height);
+        //this.topCtx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.map.fire('drawtopstart');
         this.map.fire('drawtops');
         const tops = this.getTopElements();

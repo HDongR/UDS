@@ -130,11 +130,11 @@ Map.mergeOptions({
     'scaleControl': false
 });
 
-Map.addOnLoadHook(function () {
-    if (this.options['scaleControl']) {
-        this.scaleControl = new Scale(this.options['scaleControl']);
-        this.addControl(this.scaleControl);
-    }
-});
+// Map.addOnLoadHook(function () {
+//     if (this.options['scaleControl']) {
+//         this.scaleControl = new Scale(this.options['scaleControl']);
+//         this.addControl(this.scaleControl);
+//     }
+// });
 
 export default Scale;

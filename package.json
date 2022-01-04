@@ -34,8 +34,10 @@
     "@maptalks/feature-filter": "^1.0.0",
     "@maptalks/function-type": "^1.2.3",
     "frustum-intersects": "^0.1.0",
+    "maptalks.three": "^0.17.2",
     "rbush": "^2.0.2",
     "simplify-js": "^1.2.1",
+    "three": "^0.136.0",
     "zousan": "^2.3.3"
   },
   "devDependencies": {

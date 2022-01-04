@@ -182,11 +182,11 @@ Map.mergeOptions({
     'layerSwitcherControl': false
 });
 
-Map.addOnLoadHook(function () {
-    if (this.options['layerSwitcherControl']) {
-        this.layerSwitcherControl = new LayerSwitcher(this.options['layerSwitcherControl']);
-        this.addControl(this.layerSwitcherControl);
-    }
-});
+// Map.addOnLoadHook(function () {
+//     if (this.options['layerSwitcherControl']) {
+//         this.layerSwitcherControl = new LayerSwitcher(this.options['layerSwitcherControl']);
+//         this.addControl(this.layerSwitcherControl);
+//     }
+// });
 
 export default LayerSwitcher;

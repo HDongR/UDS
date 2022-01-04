@@ -49,7 +49,7 @@ class TileLayerCanvasRenderer extends CanvasRenderer {
         if (!this.isDrawable()) {
             return;
         }
-        const mask2DExtent = this.prepareCanvas();
+        const mask2DExtent = this.prepareCanvas(map.context.canvas);
         if (mask2DExtent) {
             if (!mask2DExtent.intersects(this.canvasExtent2D)) {
                 this.completeRender();
@@ -348,17 +348,20 @@ class TileLayerCanvasRenderer extends CanvasRenderer {
         }
     }
 
-    loadTile(tile) {
+    async loadTile(tile) {
         const tileSize = this.layer.getTileSize(tile.layer);
-        const tileImage = new Image();
+        const imgblob = await fetch(tile.url)
+        .then(r => r.blob());
+        const tileImage = await createImageBitmap(imgblob);
 
-        tileImage.width = tileSize['width'];
-        tileImage.height = tileSize['height'];
+
+        //tileImage.width = tileSize['width'];
+        //tileImage.height = tileSize['height'];
 
         tileImage.onload = this.onTileLoad.bind(this, tileImage, tile);
         tileImage.onerror = this.onTileError.bind(this, tileImage, tile);
 
-        this.loadTileImage(tileImage, tile['url']);
+       // this.loadTileImage(tileImage, tile['url']);
         return tileImage;
     }
 

@@ -23,7 +23,7 @@ let adapters = {};
     @static
  */
 export function registerWorkerAdapter(workerKey, adapter) {
-    adapters[workerKey] = adapter;
+    //adapters[workerKey] = adapter;
 }
 
 const header = `

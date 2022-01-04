@@ -83,12 +83,12 @@ Map.mergeOptions({
     'attribution': true
 });
 
-Map.addOnLoadHook(function () {
-    const a = this.options['attribution'] || this.options['attributionControl'];
-    if (a) {
-        this.attributionControl = new Attribution(a);
-        this.addControl(this.attributionControl);
-    }
-});
+// Map.addOnLoadHook(function () {
+//     const a = this.options['attribution'] || this.options['attributionControl'];
+//     if (a) {
+//         this.attributionControl = new Attribution(a);
+//         this.addControl(this.attributionControl);
+//     }
+// });
 
 export default Attribution;

@@ -23,6 +23,7 @@ import Layer from '../layer/Layer';
 import Renderable from '../renderer/Renderable';
 import SpatialReference from './spatial-reference/SpatialReference';
 import { computeDomPosition } from '../core/util/dom';
+import {TileLayer} from '../layer/tile/TileLayer';
 
 const TEMP_COORD = new Coordinate(0, 0);
 /**
@@ -171,6 +172,16 @@ class Map extends Handlerable(Eventable(Renderable(Class))) {
             throw new Error('Invalid center when creating map.');
         }
         
+        // let baseMapAPIKey = 'CEA95F0D-263F-3764-8381-BC4362A8633F';
+        // let normallayerUrl = 'http://api.vworld.kr/req/wmts/1.0.0/' + baseMapAPIKey + '/Base/{z}/{y}/{x}.png';
+        // options.baseLayer = new TileLayer('tile1', {
+        //     spatialReference: {
+        //     projection: 'EPSG:3857'
+        //     // other properties necessary for spatial reference
+        //     },
+        //     'urlTemplate': normallayerUrl
+        // });
+
         // prepare options
         const opts = extend({}, options);
         const zoom = opts['zoom'];
@@ -199,8 +210,11 @@ class Map extends Handlerable(Eventable(Renderable(Class))) {
         });
 
         this._loaded = false;
-        this._initContainer(container);
 
+        this._containerDOM = options;
+
+        this._initContainer(container);
+        this.context = container;
         this._containerDOM.getBoundingClientRect = options.getBoundingClientRect;
         this._panels = {};
 
@@ -210,6 +224,7 @@ class Map extends Handlerable(Eventable(Renderable(Class))) {
 
         this._zoomLevel = zoom;
         this._center = center;
+        
 
         this.setSpatialReference(opts['spatialReference'] || opts['view']);
 
@@ -1637,7 +1652,6 @@ class Map extends Handlerable(Eventable(Renderable(Class))) {
                 throw new Error('Invalid container when creating map: \'' + container + '\'');
             }
         } else {
-            this._containerDOM = container;
             if (IS_NODE) {
                 //Reserve container's constructor in node for canvas creating.
                 this.CanvasClass = this._containerDOM.constructor;
@@ -1743,7 +1757,7 @@ class Map extends Handlerable(Eventable(Renderable(Class))) {
         }
         delete this._glRes;
         this._loadAllLayers();
-        this._getRenderer().onLoad();
+        //this._getRenderer().onLoad();
         this._loaded = true;
         this._callOnLoadHooks();
         this._initTime = now();
